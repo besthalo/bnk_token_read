@@ -39,7 +39,7 @@ function getVote(index) {
 const LinkAddress =
   "https://scan.tokenx.finance/address/0x429B686F70332fd0A3F8d261A11B4B42d6D036Df/read-contract"; // INPUT Link Address
 
-async function process() {
+async function processData() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   var userAgent = require("user-agents");
@@ -87,9 +87,10 @@ async function process() {
   }
   console.clear();
   console.table(dataForPrint);
+  process.exit()
 }
 
 
 (async ()=>{
-    await process()
+    await processData()
 })();
