@@ -1,6 +1,6 @@
 const puppeteer = require("puppeteer");
 const BigNumber = require("bignumber.js");
-
+const UserAgent = require("user-agents");
 // Example from CGM poll
 const eventName = [
   "Angel",
@@ -42,7 +42,7 @@ const LinkAddress =
 async function processData() {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  var userAgent = require("user-agents");
+  const userAgent = new UserAgent();
   await page.setUserAgent(userAgent.toString());
   await page.goto(LinkAddress);
   await page.$x("//div[contains(text(),'getProposalList')]");
